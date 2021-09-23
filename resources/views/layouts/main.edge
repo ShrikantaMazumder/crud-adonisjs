@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  {{ style('style') }}
+
+  {{--  extra css   --}}
+    @!section('extracss')
+
+  {{--  website title  --}}
+  <title>
+      @!section('title')
+  </title>
+</head>
+<body>
+    {{--  navbar  --}}
+    <header>
+        <a href="/" id="logo">CRUD App</a>
+        <nav>
+            <ul>
+                <li><a href="/">Posts</a></li>
+                @loggedIn
+                    <li><a href="/make-a-post">My post</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                @else
+                    <li><a href="/Login">Login</a></li>
+                    <li><a href="/signup">Sign up</a></li>
+                @endloggedIn
+            </ul>
+        </nav>
+    </header>
+
+    {{--  content section  --}}
+    <div class="container">
+        @!section('content')
+    </div>
+</body>
+</html>

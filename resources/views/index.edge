@@ -1,0 +1,19 @@
+@layout('layouts.main')
+
+@section('title')
+  CRUD - All Data
+@endsection
+
+@section('content')
+  <h1>All Data</h1>
+
+  @each(post in posts)
+  <div class="job-container">
+    <div class="blank"></div>
+    <div class="job-info">
+      <h3><a href="{{ post.link }}">{{ post.title }}</a></h3>
+      <p>{{ post.description }}</p>
+    </div>
+  </div>
+  @endeach
+@endsection
